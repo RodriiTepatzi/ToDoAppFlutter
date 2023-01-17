@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_flutter/controllers/dashboard_controller.dart';
+import 'package:todo_flutter/providers/task_provider.dart';
 import 'package:todo_flutter/static/colors.dart';
-import 'package:todo_flutter/views/widgets/task_card.dart';
+import 'package:todo_flutter/static/widget_properties.dart';
 
 class DashboardView extends StatefulWidget {
-  DashboardView({Key? key}) : super(key: key);
+  const DashboardView({Key? key}) : super(key: key);
 
   @override
   State<DashboardView> createState() => _DashboardViewState();
@@ -31,10 +34,19 @@ class _DashboardViewState extends State<DashboardView> {
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          Row(
+          Column(
             children: [
-              TaskCard(isLeft: true,),
-              TaskCard(isLeft: false,),
+              ...DashboardController().generateCards(context.watch<TaskProvider>().uncheckedTasks!),
+              context.watch<TaskProvider>().uncheckedTasks!.isEmpty ? Container(
+                margin: const EdgeInsets.only(top: widgetMargin),
+                child: const Text(
+                  "No hay elementos.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ) : Container(),
             ],
           ),
         ],

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/static/colors.dart';
+import 'package:todo_flutter/views/checked_view.dart';
 import 'package:todo_flutter/views/dashboard_view.dart';
 import 'package:todo_flutter/views/widgets/bottombar_item.dart';
 
 class MainTabBarView extends StatefulWidget {
-  MainTabBarView({Key? key}) : super(key: key);
+  const MainTabBarView({Key? key}) : super(key: key);
 
   @override
   State<MainTabBarView> createState() => _TabBarViewState();
@@ -17,12 +18,12 @@ class _TabBarViewState extends State<MainTabBarView> with TickerProviderStateMix
     {
       "icon" : "assets/icons/home.svg",
       "active_icon" : "assets/icons/home.svg",
-      "page" : DashboardView(),
+      "page" : const DashboardView(),
     },
     {
-      "icon" : "assets/icons/heart.svg",
-      "active_icon" : "assets/icons/heart.svg",
-      "page" : Container(),
+      "icon" : "assets/icons/check.svg",
+      "active_icon" : "assets/icons/check.svg",
+      "page" : const CheckedView(),
     },
   ];
   
