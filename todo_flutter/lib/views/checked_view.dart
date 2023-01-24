@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_flutter/controllers/dashboard_controller.dart';
+import 'package:todo_flutter/providers/lang_provider.dart';
 import 'package:todo_flutter/providers/task_provider.dart';
 import 'package:todo_flutter/static/colors.dart';
 import 'package:todo_flutter/static/widget_properties.dart';
@@ -36,10 +37,10 @@ class _CheckedViewState extends State<CheckedView> {
             ),
             child: Row(
               children: [
-                const Text(
-                  "Checked",
+                Text(
+                  context.read<LangProvider>().get('titleCheckedView'),
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w900,
                   ),
@@ -63,10 +64,10 @@ class _CheckedViewState extends State<CheckedView> {
                         ),
                       ),
                       builder: (BuildContext context) {
-                        return AddViewModal();
+                        return const AddViewModal();
                       },
                     );
-                  }
+                  },
                 ),
               ],
             ),

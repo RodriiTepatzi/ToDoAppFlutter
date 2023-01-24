@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_flutter/static/colors.dart';
 
 class BottomBarItem extends StatelessWidget {
-  const BottomBarItem(this.icon, {Key? key, this.onTap, this.color = bottomBarItemColor, this.activeColor = bottomBarItemActiveColor, this.isActive = false, this.isNotified = false});
+  const BottomBarItem(this.icon, {Key? key, this.onTap, this.color = bottomBarItemColor, this.activeColor = bottomBarItemActiveColor, this.isActive = false, this.isNotified = false}) : super(key: key);
   final String icon;
   final Color color;
   final Color activeColor;

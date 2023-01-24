@@ -7,7 +7,7 @@ class DashboardController{
   List<Task> getTasks(){
     List<Task> data = [];
 
-    data.add(Task(title: "Mandar los pendientes de la clase idkaaa", description: "Lolcito", isDone: false, colorTask: Colors.green, dateCreated: DateTime(2023,1,16), emoji: '🎮'));
+    data.add(Task(title: "Mandar los pendientes", description: "Lolcito", isDone: false, colorTask: Colors.green, dateCreated: DateTime(2023,1,16), emoji: '🎮'));
     data.add(Task(title: "Jugar valorantxd", description: "Peor juego del mundo", isDone: false, colorTask: Colors.red, dateCreated: DateTime(2023,1,10)));
     data.add(Task(title: "Jugar valorant", description: "Peor juego del mundo", isDone: false, colorTask: Colors.purple, dateCreated: DateTime(2023,1,1)));
 

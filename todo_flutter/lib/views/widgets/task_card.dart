@@ -7,6 +7,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../other/dates.dart';
 
+// ignore: must_be_immutable
 class TaskCard extends StatefulWidget {
   final bool isLeft;
   final Task task;
