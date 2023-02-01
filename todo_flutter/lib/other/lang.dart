@@ -5,9 +5,9 @@ class Lang{
     'titleAddView' : 'Añadir',
     'addButton' : 'Agregar',
     'textHint' : 'Tarea',
-    '' : '',
-    'a' : '',
-    'b' : '',
+    'noItems' : 'No hay elementos',
+    'selectColor' : 'Selecciona un color',
+    'emojiPickerHint' : 'Busca un emoji',
     'unknownError' : 'Error desconocido.',
   };
 

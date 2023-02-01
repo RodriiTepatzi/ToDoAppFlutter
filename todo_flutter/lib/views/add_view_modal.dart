@@ -1,3 +1,4 @@
+import 'package:emoji_dialog_picker/emoji_dialog_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/providers/lang_provider.dart';
 import 'package:todo_flutter/static/widget_properties.dart';
@@ -11,7 +12,8 @@ class AddViewModal extends StatefulWidget {
 }
 
 class _AddViewModalState extends State<AddViewModal> {
-  Color colorCard = Colors.purple;
+  Color colorCard = Color.fromARGB(255, 237, 132, 255);
+  String emoji = '☺️';
   final TextEditingController _textFieldController = TextEditingController();
 
   @override
@@ -45,7 +47,7 @@ class _AddViewModalState extends State<AddViewModal> {
                             margin: const EdgeInsets.all(widgetMargin * 2),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: const Color.fromARGB(149, 240, 240, 240),
+                              color: Color.fromARGB(169, 245, 245, 245),
                             ),
                             height: 40,
                             width: 40,
@@ -59,9 +61,29 @@ class _AddViewModalState extends State<AddViewModal> {
                       Container(
                         height: 80,
                         width: 80,
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40.0),
-                          color: const Color.fromARGB(149, 240, 240, 240),
+                          color: Color.fromARGB(168, 245, 245, 245),
+                        ),
+                        child: EmojiButton(
+                          emojiPickerView: EmojiPickerView(
+                            hintText: context.watch<LangProvider>().get('emojiPickerHint'),
+                            onEmojiSelected: (String emoji) {
+                              setState(() {
+                                this.emoji = emoji;
+                              });
+                            },
+                          ),
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                              emoji,
+                              style: const TextStyle(
+                                fontSize: 40,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                       Container(
@@ -80,10 +102,20 @@ class _AddViewModalState extends State<AddViewModal> {
                             fillColor: Colors.white,
                           ),
                         ),
-                      ),                      
-                    ]
+                      ),
+                    ],
                   ),
                   height: (MediaQuery.of(context).size.height * 0.3),
+                ),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: true, 
+                      onChanged: (value) {
+                        
+                      },
+                    )
+                  ],
                 ),
                 GestureDetector(
                   child: Container(
@@ -97,7 +129,7 @@ class _AddViewModalState extends State<AddViewModal> {
                     ),
                     padding: const EdgeInsets.all(8),
                     child: Text(
-                      context.read<LangProvider>().get('addButton'),
+                      context.watch<LangProvider>().get('addButton'),
                       style: const TextStyle(
                         color: Colors.white,
 

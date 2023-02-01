@@ -39,7 +39,7 @@ class _DashboardViewState extends State<DashboardView> {
             child: Row(
               children: [
                 Text(
-                  context.read<LangProvider>().get('titleDashboardView'),
+                  context.watch<LangProvider>().get('titleDashboardView'),
                   textAlign: TextAlign.left,
                   style: const TextStyle(
                     color: Colors.black,
@@ -84,10 +84,10 @@ class _DashboardViewState extends State<DashboardView> {
               ...DashboardController().generateCards(context.watch<TaskProvider>().uncheckedTasks!),
               context.watch<TaskProvider>().uncheckedTasks!.isEmpty ? Container(
                 margin: const EdgeInsets.only(top: widgetMargin),
-                child: const Text(
-                  "No hay elementos.",
+                child: Text(
+                  context.watch<LangProvider>().get("noItems"),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                   ),
                 ),

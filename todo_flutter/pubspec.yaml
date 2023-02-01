@@ -38,6 +38,7 @@ dependencies:
   flutter_emoji: ^2.4.0
   provider: ^6.0.5
   flutter_staggered_animations: ^1.1.1
+  emoji_dialog_picker: ^1.0.1
 
 dev_dependencies:
   flutter_test:

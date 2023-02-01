@@ -38,7 +38,7 @@ class _CheckedViewState extends State<CheckedView> {
             child: Row(
               children: [
                 Text(
-                  context.read<LangProvider>().get('titleCheckedView'),
+                  context.watch<LangProvider>().get('titleCheckedView'),
                   textAlign: TextAlign.left,
                   style: const TextStyle(
                     color: Colors.black,
@@ -81,10 +81,10 @@ class _CheckedViewState extends State<CheckedView> {
               ...DashboardController().generateCardsChecked(context.watch<TaskProvider>().checkedTasks!),
               context.watch<TaskProvider>().checkedTasks!.isEmpty ? Container(
                 margin: const EdgeInsets.only(top: widgetMargin),
-                child: const Text(
-                  "No hay elementos.",
+                child: Text(
+                  context.watch<LangProvider>().get("noItems"),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                   ),
                 ),

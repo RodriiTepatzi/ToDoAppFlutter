@@ -97,7 +97,8 @@ class _TaskCardState extends State<TaskCard> {
                               widget.visible = !widget.visible;
                               Future.delayed(const Duration(milliseconds: 101), () {
                                 widget.task.isDone = value!;
-                                context.read<TaskProvider>().updateCard(widget.task);
+                                //context.read<TaskProvider>().updateCard(widget.task);
+                                Provider.of<TaskProvider>(context, listen: false).updateCard(widget.task);
                               });                          
                             });
                           }, 
