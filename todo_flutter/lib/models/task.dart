@@ -20,4 +20,28 @@ class Task{
       this.dateReminder,
     }
   );
+
+  Map<String, dynamic> toJson(){
+    return {
+      'emoji' : emoji,
+      'title' : title,
+      'dateReminder' : dateReminder,
+      'dateCreated' : dateCreated,
+      'description' : description,
+      'isDone' : isDone,
+      'red' : colorTask.red,
+      'green' : colorTask.green,
+      'blue' : colorTask.blue,
+      'alpha' : colorTask.alpha,
+    };
+  }
+
+  Task.fromJson(Map<String, dynamic> json) : this
+    (
+      title: json['title'],
+      description: json['description'],
+      isDone: json['isDone'],
+      colorTask: Color.fromARGB(json['alpha'], json['red'], json['green'], json['blue']), 
+      dateCreated: json['dateCreated'],
+    );
 }

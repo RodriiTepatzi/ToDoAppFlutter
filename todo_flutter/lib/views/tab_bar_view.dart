@@ -25,6 +25,11 @@ class _TabBarViewState extends State<MainTabBarView> with TickerProviderStateMix
       "active_icon" : "assets/icons/check.svg",
       "page" : const CheckedView(),
     },
+    {
+      "icon" : "assets/icons/user.svg",
+      "active_icon" : "assets/icons/user.svg",
+      "page" :  Container(),
+    },
   ];
   
   late final AnimationController _controller = AnimationController(

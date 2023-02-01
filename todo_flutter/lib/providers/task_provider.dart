@@ -14,6 +14,15 @@ class TaskProvider with ChangeNotifier{
     sortLists();
   }
 
+  void setLists(List<Task> tasks){
+    for (var element in tasks) {
+      if(element.isDone){ checkedTasks?.add(element); }
+      else { uncheckedTasks?.add(element); }
+    }
+
+    sortLists();
+  }
+
   void updateCard(Task task){
     if(task.isDone){
       uncheckedTasks?.removeWhere((element) => element.title == task.title);
