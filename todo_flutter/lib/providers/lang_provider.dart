@@ -14,7 +14,4 @@ class LangProvider with ChangeNotifier{
       return Lang.english[key] != null ? Lang.english[key]! : "";
     }
   }
-
-
-  
 }

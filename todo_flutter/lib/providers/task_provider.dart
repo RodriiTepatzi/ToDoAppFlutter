@@ -5,6 +5,7 @@ import 'package:todo_flutter/models/task.dart';
 class TaskProvider with ChangeNotifier{
   List<Task>? checkedTasks;
   List<Task>? uncheckedTasks;
+  Color newTaskColor = Colors.purple;
 
   TaskProvider(){
     uncheckedTasks = DashboardController().getTasks();
@@ -32,4 +33,14 @@ class TaskProvider with ChangeNotifier{
     uncheckedTasks?.sort((a, b) => b.dateCreated.compareTo(a.dateCreated));
   }
 
+  void addNewTask(Task task){
+    uncheckedTasks?.add(task);
+    notifyListeners();
+  }
+
+  void setNewCardColor(Color color){ 
+    newTaskColor = color;
+    notifyListeners();
+  }
+  void disposeCardColor() => newTaskColor = Colors.purple;
 }

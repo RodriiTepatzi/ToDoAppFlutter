@@ -7,6 +7,9 @@ class Dates{
     var daysOfDiff = diferenceBetweenDates.inDays;
 
 
+    if(daysOfDiff == 0){
+      return "hoy a las " + date.hour.toString() + ":" + date.minute.toString();
+    }
     if(daysOfDiff == 1){
       return "ayer";
     }
